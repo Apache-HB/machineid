@@ -1,13 +1,17 @@
 #include "machineid/machineid.h"
 #include <sstream>
+#include <cstdint>
+
 
 namespace machineid {
+using u16 = std::uint16_t;
+using u32 = std::uint32_t;
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <intrin.h>
 #include <iphlpapi.h>
-
+	
 // we just need this for purposes of unique machine id. So any one or two mac's is
 // fine.
 u16 hashMacAddress(PIP_ADAPTER_INFO info) {

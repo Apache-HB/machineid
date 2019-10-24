@@ -18,7 +18,7 @@ if meson.get_compiler('cpp').get_id() == 'msvc'
     args += '/EHsc-'
 endif
 
-machid_lib = static_library('machineid', sources, cpp_args : args, install : true)
+machid_lib = static_library('machineid', sources, cpp_args : args, include_directories : incdir, install : true)
 machid_dep = declare_dependency(
     link_with : machid_lib,
     include_directories : incdir

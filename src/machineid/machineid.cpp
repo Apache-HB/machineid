@@ -87,7 +87,7 @@ const char *getMachineName() {
 #include <netinet/ip.h>
 #include <netinet/ip_icmp.h>
 
-#ifdef DARWIN
+#if defined(__APPLE__)
 #include <net/if_dl.h>
 #include <ifaddrs.h>
 #include <net/if_types.h>

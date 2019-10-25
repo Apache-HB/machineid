@@ -122,7 +122,7 @@ const char *getMachineName() {
 		mac1 = 0;
 		mac2 = 0;
 
-#ifdef DARWIN
+#if defined(__APPLE__)
 
 		struct ifaddrs* ifaphead;
 	   if ( getifaddrs( &ifaphead ) != 0 )
@@ -209,7 +209,7 @@ const char *getMachineName() {
 		return hash;
 	}
 
-#ifdef DARWIN
+#if defined(__APPLE__)
 #include <mach-o/arch.h>
 	unsigned short getCpuHash()
 	{
